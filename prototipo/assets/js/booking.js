@@ -136,7 +136,7 @@
   /* ---------- Paso 1: servicio ---------- */
   function renderService(w) {
     w.innerHTML = `
-      <input class="b-search" type="search" placeholder="Buscar servicio… (p. ej. barba, mechas, recogido)" aria-label="Buscar servicio" value="${st.q}">
+      <input class="b-search" type="search" placeholder="Buscar: barba, mechas, recogido…" aria-label="Buscar servicio" value="${st.q}">
       <div class="b-tabs" role="tablist">
         <button data-g="all">Todos</button>
         ${D.groups.map(g => `<button data-g="${g.id}">${g.name.split(':')[0].replace(' & ', ' y ')}</button>`).join('')}
