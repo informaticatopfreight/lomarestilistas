@@ -230,9 +230,10 @@
         <div class="b-field"><label for="bn">Nombre y apellidos</label><input id="bn" name="name" autocomplete="name" required value="${c.name || ''}"></div>
         <div class="b-field"><label for="bp">Teléfono</label><input id="bp" name="phone" type="tel" autocomplete="tel" inputmode="tel" required value="${c.phone || ''}"></div>
         <div class="b-field"><label for="be">Email</label><input id="be" name="email" type="email" autocomplete="email" required value="${c.email || ''}"></div>
-        <div class="b-field"><label for="bo">Comentarios (opcional)</label><textarea id="bo" name="notes" rows="2" placeholder="Largo de pelo, alergias, referencia de color…">${c.notes || ''}</textarea></div>
-        <label class="b-check"><input type="checkbox" name="legal" required ${c.legal ? 'checked' : ''}> <span>He leído y acepto la <a href="#" style="text-decoration:underline">política de privacidad</a>.</span></label>
-        <label class="b-check"><input type="checkbox" name="wa" ${c.wa !== false ? 'checked' : ''}> <span>Quiero recibir la confirmación y el recordatorio por WhatsApp.</span></label>
+        <div class="b-field"><label for="bo">Comentarios (opcional)</label><textarea id="bo" name="notes" rows="2" placeholder="Largo de pelo, referencia de color… (no incluyas datos de salud)">${c.notes || ''}</textarea></div>
+        <label class="b-check"><input type="checkbox" name="legal" required ${c.legal ? 'checked' : ''}> <span>He leído la <a href="privacidad.html" target="_blank" rel="noopener" style="text-decoration:underline">política de privacidad</a>.</span></label>
+        <label class="b-check"><input type="checkbox" name="wa" ${c.wa ? 'checked' : ''}> <span>Quiero recibir la confirmación y el recordatorio también por WhatsApp (opcional).</span></label>
+        <p class="b-legal"><b>Información básica sobre protección de datos.</b> Responsable: Francisco Javier López Martín (LOMAR Estilistas). Finalidad: gestionar tu cita y enviarte la confirmación y el recordatorio. Legitimación: tu solicitud de cita y, para WhatsApp, tu consentimiento. Destinatarios: no se ceden datos a terceros, salvo a proveedores que nos prestan servicio (alojamiento web y envío de avisos). Derechos: acceso, rectificación, supresión y otros, escribiendo a hola@lomarestilistas.es. Más información en la <a href="privacidad.html" target="_blank" rel="noopener">política de privacidad</a>.</p>
       </form>`;
     const f = $('form', w);
     f.addEventListener('input', () => { const fd = new FormData(f); st.customer = { ...Object.fromEntries(fd), legal: f.legal.checked, wa: f.wa.checked }; });
