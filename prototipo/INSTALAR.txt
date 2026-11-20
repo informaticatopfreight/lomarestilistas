@@ -47,14 +47,17 @@ PASOS
 5. Abre https://nueva.lomarestilistas.es (o el nombre que hayas elegido)
    y comprueba que se ve la portada.
 
-6. Cuando el HTTPS funcione, edita .htaccess y quita las almohadillas (#)
-   de las tres líneas del punto 4 para forzar HTTPS.
+6. Si quieres que la versión http:// redirija siempre a https://, usa la
+   opción del panel de Dinahosting. NO añadas reglas de HTTPS al .htaccess:
+   en Dinahosting provocan un bucle ("demasiadas redirecciones").
 
 SI ALGO FALLA
 - Sale un listado de archivos o un error 403: index.html no está en la
   carpeta correcta.
 - Se ve sin estilos o sin imágenes: falta la carpeta assets o se ha
   subido dentro de otra carpeta.
+- "Demasiadas redirecciones" (ERR_TOO_MANY_REDIRECTS): hay una regla de
+  HTTPS en .htaccess. Sube el .htaccess de este paquete o borra esas líneas.
 - Error 500 tras subir .htaccess: borra el .htaccess (la web funciona
   igual sin él) y avísanos.
 - El subdominio no carga: los DNS pueden tardar en propagarse,
