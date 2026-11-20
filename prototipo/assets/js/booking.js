@@ -12,6 +12,7 @@
   const el = $('.book'), body = $('.js-book-body'), title = $('.js-book-title');
   const next = $('.js-next'), prev = $('.js-prev'), summary = $('.js-summary'), steps = $$('.js-steps li'), foot = $('.js-book-foot');
   const TITLES = ['Elige servicio', '¿Con quién?', 'Fecha y hora', 'Tus datos'];
+  const TAB_NAMES = { caballero: 'Barbería', senora: 'Cortes señora', color: 'Color', peinados: 'Peinados', tratamientos: 'Tratamientos', maquillaje: 'Maquillaje' };
 
   let st, holdTimer;
   const reset = () => { st = { step: 0, service: null, staff: null, any: false, date: null, time: null, month: null, holdUntil: 0, group: 'all', q: '', customer: {} }; };
@@ -139,7 +140,7 @@
       <input class="b-search" type="search" placeholder="Buscar: barba, mechas, recogido…" aria-label="Buscar servicio" value="${st.q}">
       <div class="b-tabs" role="tablist">
         <button data-g="all">Todos</button>
-        ${D.groups.map(g => `<button data-g="${g.id}">${g.name.split(':')[0].replace(' & ', ' y ')}</button>`).join('')}
+        ${D.groups.map(g => `<button data-g="${g.id}">${TAB_NAMES[g.id] || g.name}</button>`).join('')}
       </div>
       <div class="js-list"></div>`;
     const list = $('.js-list', w), input = $('.b-search', w);
