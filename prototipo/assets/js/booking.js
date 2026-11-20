@@ -5,6 +5,7 @@
   const $$ = (s, c = document) => [...c.querySelectorAll(s)];
   const D = window.LOMAR;
   const fmtDur = window.fmtDur || (m => { const h = Math.floor(m / 60), r = m % 60; return h ? `${h} h${r ? ' ' + r + ' min' : ''}` : `${r} min`; });
+  const PRIVACY_URL = (window.LOMAR_URLS && window.LOMAR_URLS.privacy) || 'privacidad.html';
   const HOLD_SECONDS = 5 * 60;
   const MAX_DAYS = 60;
   const STEP_MIN = 30;
@@ -172,7 +173,7 @@
     const able = D.staff.filter(p => canDo(p, st.service));
     w.innerHTML = `<div class="b-staff">
       <button class="b-person ${st.any ? 'is-selected' : ''}" data-any="1"><figure>✦</figure><div><b>Sin preferencia</b><span>Primer hueco libre</span></div></button>
-      ${D.staff.map(p => `<button class="b-person ${st.staff === p.id && !st.any ? 'is-selected' : ''}" data-id="${p.id}" ${able.includes(p) ? '' : 'disabled'}><figure><img src="${p.img}" alt=""></figure><div><b>${p.name}</b><span>${able.includes(p) ? (p.id === 1 ? 'Fundador · barbería y color' : 'Estilista · color y peinados') : 'No realiza este servicio'}</span></div></button>`).join('')}
+      ${D.staff.map(p => `<button class="b-person ${st.staff === p.id && !st.any ? 'is-selected' : ''}" data-id="${p.id}" ${able.includes(p) ? '' : 'disabled'}><figure><img src="${(window.LOMAR_BASE || '') + p.img}" alt=""></figure><div><b>${p.name}</b><span>${able.includes(p) ? (p.id === 1 ? 'Fundador · barbería y color' : 'Estilista · color y peinados') : 'No realiza este servicio'}</span></div></button>`).join('')}
     </div>`;
     w.addEventListener('click', e => {
       const b = e.target.closest('.b-person'); if (!b) return;
@@ -232,9 +233,9 @@
         <div class="b-field"><label for="bp">Teléfono</label><input id="bp" name="phone" type="tel" autocomplete="tel" inputmode="tel" required value="${c.phone || ''}"></div>
         <div class="b-field"><label for="be">Email</label><input id="be" name="email" type="email" autocomplete="email" required value="${c.email || ''}"></div>
         <div class="b-field"><label for="bo">Comentarios (opcional)</label><textarea id="bo" name="notes" rows="2" placeholder="Largo de pelo, referencia de color… (no incluyas datos de salud)">${c.notes || ''}</textarea></div>
-        <label class="b-check"><input type="checkbox" name="legal" required ${c.legal ? 'checked' : ''}> <span>He leído la <a href="privacidad.html" target="_blank" rel="noopener" style="text-decoration:underline">política de privacidad</a>.</span></label>
+        <label class="b-check"><input type="checkbox" name="legal" required ${c.legal ? 'checked' : ''}> <span>He leído la <a href="${PRIVACY_URL}" target="_blank" rel="noopener" style="text-decoration:underline">política de privacidad</a>.</span></label>
         <label class="b-check"><input type="checkbox" name="wa" ${c.wa ? 'checked' : ''}> <span>Quiero recibir la confirmación y el recordatorio también por WhatsApp (opcional).</span></label>
-        <p class="b-legal"><b>Información básica sobre protección de datos.</b> Responsable: Francisco Javier López Martín (LOMAR Estilistas). Finalidad: gestionar tu cita y enviarte la confirmación y el recordatorio. Legitimación: tu solicitud de cita y, para WhatsApp, tu consentimiento. Destinatarios: no se ceden datos a terceros, salvo a proveedores que nos prestan servicio (alojamiento web y envío de avisos). Derechos: acceso, rectificación, supresión y otros, escribiendo a hola@lomarestilistas.es. Más información en la <a href="privacidad.html" target="_blank" rel="noopener">política de privacidad</a>.</p>
+        <p class="b-legal"><b>Información básica sobre protección de datos.</b> Responsable: Francisco Javier López Martín (LOMAR Estilistas). Finalidad: gestionar tu cita y enviarte la confirmación y el recordatorio. Legitimación: tu solicitud de cita y, para WhatsApp, tu consentimiento. Destinatarios: no se ceden datos a terceros, salvo a proveedores que nos prestan servicio (alojamiento web y envío de avisos). Derechos: acceso, rectificación, supresión y otros, escribiendo a hola@lomarestilistas.es. Más información en la <a href="${PRIVACY_URL}" target="_blank" rel="noopener">política de privacidad</a>.</p>
       </form>`;
     const f = $('form', w);
     f.addEventListener('input', () => { const fd = new FormData(f); st.customer = { ...Object.fromEntries(fd), legal: f.legal.checked, wa: f.wa.checked }; });

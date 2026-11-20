@@ -78,7 +78,7 @@
     $$('.js-hours tr').forEach(tr => tr.classList.toggle('is-today', +tr.dataset.d === day));
   };
   updateStatus(); setInterval(updateStatus, 60000);
-  $('.js-year').textContent = new Date().getFullYear();
+  const yearEl = $('.js-year'); if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   /* ---------- Navegación ---------- */
   const nav = $('.nav');
@@ -139,7 +139,7 @@
     const li = document.createElement('li');
     li.className = 'svc__item';
     li.innerHTML = `
-      <button class="svc__row" data-img="${g.img}" aria-expanded="false">
+      <button class="svc__row" data-img="${(window.LOMAR_BASE || '') + g.img}" aria-expanded="false">
         <span class="svc__num">${String(i + 1).padStart(2, '0')}</span>
         <span class="svc__name">${g.name}</span>
         <span class="svc__count">${items.length} servicios</span>

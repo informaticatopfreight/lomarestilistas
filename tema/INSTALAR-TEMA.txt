@@ -1,0 +1,38 @@
+LOMAR ESTILISTAS - INSTALAR EL TEMA EN WORDPRESS
+================================================
+
+ANTES: LIMPIAR EL SUBDOMINIO
+Borra solo lo que subimos del prototipo. NO toques WordPress.
+  Borrar:    index.html, aviso-legal.html, privacidad.html, cookies.html,
+             carpeta assets/, robots.txt, INSTALAR.txt, htaccess y .htaccess
+  NO borrar: wp-admin/, wp-content/, wp-includes/, index.php,
+             wp-config.php ni el resto de archivos wp-*.php
+
+1. Entra en https://lomarestilistas.fgtecnia.com/wp-admin/
+   (si aún no abre, entra por /wp-login.php)
+
+2. Ajustes > Enlaces permanentes: marca "Nombre de la entrada" y pulsa
+   Guardar. WordPress vuelve a crear su .htaccess.
+
+3. Apariencia > Temas > Añadir nuevo tema > Subir tema
+   Elige lomar.zip (sin descomprimir) > Instalar ahora > Activar.
+
+   Si dice que el archivo es demasiado grande: descomprime lomar.zip en
+   tu ordenador y sube por FTP la carpeta "lomar" a wp-content/themes/.
+   Luego actívalo en Apariencia > Temas.
+
+4. Al activarlo se crean solas las páginas:
+     /aviso-legal/   /politica-privacidad/   /politica-de-cookies/
+   Se pueden editar en Páginas. Falta rellenar el NIF (marcado en naranja).
+   Si ya existía una página con esa dirección, el tema no la sobrescribe.
+
+5. Mientras sea una web de pruebas: Ajustes > Lectura > marca
+   "Pedir a los motores de búsqueda que no indexen este sitio".
+
+LA RESERVA
+- Sin Bookly: el botón "Reservar cita" abre la reserva SIMULADA del diseño,
+  con el aviso "Prototipo de diseño · las reservas son simuladas".
+- Con Bookly instalado y activo: el tema lo detecta solo y el mismo botón
+  abre el formulario REAL de Bookly en el panel lateral. El aviso de
+  prototipo desaparece. El estilo del formulario de Bookly hay que
+  ajustarlo una vez instalado.

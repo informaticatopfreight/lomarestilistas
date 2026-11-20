@@ -1,0 +1,18 @@
+/* Ajustes propios de WordPress */
+
+/* Barra de administración (cuando hay sesión iniciada) */
+.admin-bar .nav{top:32px}
+.admin-bar .menu{top:32px}
+@media (max-width:782px){.admin-bar .nav,.admin-bar .menu{top:46px}}
+
+/* Contenido editable de las páginas */
+.legal__content>*:first-child{margin-top:0}
+.legal__content img{height:auto}
+.legal__content .alignleft{float:left;margin:0 24px 16px 0}
+.legal__content .alignright{float:right;margin:0 0 16px 24px}
+.legal__content .aligncenter{margin-left:auto;margin-right:auto}
+.screen-reader-text{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+
+/* Reserva con Bookly dentro del panel lateral */
+.book--bookly .book__body--bookly{padding-bottom:36px}
+.book--bookly .bookly-form{font-family:var(--sans)}

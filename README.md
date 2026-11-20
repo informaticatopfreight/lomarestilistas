@@ -13,6 +13,7 @@ Rediseño de [lomarestilistas.es](https://lomarestilistas.es), peluquería, colo
   cd prototipo && python3 -m http.server 8000
   ```
   y visita http://localhost:8000
+- `tema/lomar/`: tema de WordPress (se instala con *Apariencia → Temas → Subir tema*). Instrucciones en `tema/INSTALAR-TEMA.txt`.
 - `docs/propuesta.md`: propuesta de diseño, recomendación del sistema de reservas y plan técnico.
 
 En el prototipo, la reserva es una simulación: la disponibilidad se genera de forma aleatoria. En producción la gestiona Bookly Pro.
