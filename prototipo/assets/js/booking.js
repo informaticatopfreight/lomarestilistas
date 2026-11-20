@@ -4,7 +4,7 @@
   const $ = (s, c = document) => c.querySelector(s);
   const $$ = (s, c = document) => [...c.querySelectorAll(s)];
   const D = window.LOMAR;
-  const fmtDur = window.fmtDur;
+  const fmtDur = window.fmtDur || (m => { const h = Math.floor(m / 60), r = m % 60; return h ? `${h} h${r ? ' ' + r + ' min' : ''}` : `${r} min`; });
   const HOLD_SECONDS = 5 * 60;
   const MAX_DAYS = 60;
   const STEP_MIN = 30;

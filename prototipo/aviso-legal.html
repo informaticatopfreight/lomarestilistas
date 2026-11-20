@@ -9,12 +9,50 @@
 <link rel="stylesheet" href="assets/css/fonts.css">
 <link rel="stylesheet" href="assets/css/main.css">
 </head>
-<body>
-<header class="legal-head">
-  <a href="index.html" aria-label="Volver a la página de inicio"><img src="assets/img/logo-blanco.png" alt="LOMAR Estilistas"></a>
-  <nav aria-label="Textos legales"><a href="aviso-legal.html" aria-current="page">Aviso legal</a><a href="privacidad.html">Privacidad</a><a href="cookies.html">Cookies</a></nav>
-  <a class="btn btn--copper" href="index.html">Volver a la web</a>
+<body class="page-legal">
+<!-- CABECERA COMÚN (generada por tools/sync-legal.py) -->
+<!-- Aviso de prototipo -->
+<div class="proto-badge" role="note">Prototipo de diseño · las reservas son simuladas</div>
+
+<header class="nav">
+  <a class="nav__logo" href="index.html" aria-label="LOMAR Estilistas, inicio">
+    <img src="assets/img/logo-blanco.png" alt="LOMAR Estilistas" width="64" height="64">
+  </a>
+  <nav class="nav__links" aria-label="Principal">
+    <a href="index.html#equipo">Equipo</a>
+    <a href="index.html#servicios">Servicios</a>
+    <a href="index.html#color">Color</a>
+    <a href="index.html#salon">El salón</a>
+    <a href="index.html#contacto">Contacto</a>
+  </nav>
+  <div class="nav__actions">
+    <div class="social">
+      <a href="https://www.facebook.com/315380262516977" target="_blank" rel="noopener" aria-label="LOMAR Estilistas en Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="fill" d="M13.5 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21h3.1z"/></svg></a>
+      <a href="https://www.instagram.com/lomarestilistas" target="_blank" rel="noopener" aria-label="LOMAR Estilistas en Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" class="fill"/></svg></a>
+    </div>
+    <a class="nav__tel" href="tel:+34910401321">910 401 321</a>
+    <button class="btn btn--copper js-book" data-magnetic>Reservar cita</button>
+    <button class="nav__burger js-menu" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span></button>
+  </div>
 </header>
+
+<div class="menu" aria-hidden="true">
+  <nav>
+    <a href="index.html#equipo"><small>01</small>Equipo</a>
+    <a href="index.html#servicios"><small>02</small>Servicios</a>
+    <a href="index.html#color"><small>03</small>Color</a>
+    <a href="index.html#salon"><small>04</small>El salón</a>
+    <a href="index.html#contacto"><small>05</small>Contacto</a>
+  </nav>
+  <div class="menu__foot">
+    <a href="tel:+34910401321">910 401 321</a>
+    <div class="social">
+      <a href="https://www.facebook.com/315380262516977" target="_blank" rel="noopener" aria-label="LOMAR Estilistas en Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="fill" d="M13.5 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21h3.1z"/></svg></a>
+      <a href="https://www.instagram.com/lomarestilistas" target="_blank" rel="noopener" aria-label="LOMAR Estilistas en Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" class="fill"/></svg></a>
+    </div>
+  </div>
+</div>
+<!-- /CABECERA COMÚN -->
 
 <main class="legal">
   <div class="wrap">
@@ -77,5 +115,34 @@
     <nav><a href="aviso-legal.html">Aviso legal</a><a href="privacidad.html">Privacidad</a><a href="cookies.html">Cookies</a></nav>
   </div>
 </footer>
+<!-- RESERVA COMÚN (generada por tools/sync-legal.py) -->
+<!-- ============ RESERVA ============ -->
+<div class="book" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="book-title">
+  <div class="book__backdrop js-book-close"></div>
+  <aside class="book__panel">
+    <header class="book__head">
+      <div>
+        <p class="eyebrow">Reserva online</p>
+        <h2 id="book-title" class="book__title js-book-title">Elige servicio</h2>
+      </div>
+      <button class="book__close js-book-close" aria-label="Cerrar">✕</button>
+    </header>
+    <ol class="book__steps js-steps">
+      <li class="is-active">Servicio</li><li>Profesional</li><li>Fecha y hora</li><li>Tus datos</li>
+    </ol>
+    <div class="book__body js-book-body"></div>
+    <footer class="book__foot js-book-foot">
+      <div class="book__summary js-summary"></div>
+      <div class="book__nav">
+        <button class="btn btn--ghost js-prev">Atrás</button>
+        <button class="btn btn--copper js-next" disabled>Continuar</button>
+      </div>
+    </footer>
+  </aside>
+</div>
+<!-- /RESERVA COMÚN -->
+<script src="assets/js/data.js"></script>
+<script src="assets/js/legal.js"></script>
+<script src="assets/js/booking.js"></script>
 </body>
 </html>

@@ -145,8 +145,10 @@
         <span class="svc__count">${items.length} servicios</span>
         <span class="svc__plus" aria-hidden="true"></span>
       </button>
-      <div class="svc__panel"><div><ul class="svc__list">
-        ${items.map(s => `<li><button class="js-book" data-service="${s.id}" data-cursor="Reservar">${s.name}</button><span>${fmtDur(s.min)}</span></li>`).join('')}
+      <div class="svc__panel"><div>
+        <p class="svc__hint">Pulsa un servicio para reservarlo · Precio a consultar según largo</p>
+        <ul class="svc__list">
+        ${items.map(s => `<li><button class="js-book" data-service="${s.id}" data-cursor="Reservar"><span class="svc__label">${s.name}</span><span class="svc__time"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>${fmtDur(s.min)}</span></button></li>`).join('')}
       </ul></div></div>`;
     svcList.append(li);
   });
