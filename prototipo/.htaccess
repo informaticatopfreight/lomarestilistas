@@ -5,8 +5,9 @@
   Header set X-Robots-Tag "noindex, nofollow"
 </IfModule>
 
-# 2) Página de inicio
-DirectoryIndex index.html
+# 2) Página de inicio: primero el prototipo (index.html) y, si una carpeta no lo
+#    tiene, el index.php de WordPress (así funciona /wp-admin/).
+DirectoryIndex index.html index.php
 
 # 3) Caché del navegador para imágenes, fuentes, CSS y JS (la web carga más rápido)
 <IfModule mod_expires.c>
@@ -23,3 +24,18 @@ DirectoryIndex index.html
 #    En Dinahosting hay un servidor intermedio delante y la comprobación típica
 #    (RewriteCond %{HTTPS} !=on) crea un bucle de redirecciones infinito.
 #    Si quieres forzar HTTPS, usa la opción del panel de Dinahosting.
+
+# 5) WordPress en la misma carpeta (bloque estándar de WordPress).
+#    Los archivos que existen (el prototipo) se sirven tal cual; el resto lo
+#    atiende WordPress (wp-json, enlaces permanentes...).
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+# END WordPress
