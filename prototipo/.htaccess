@@ -1,0 +1,26 @@
+# LOMAR Estilistas · subdominio de pruebas (Apache, Dinahosting)
+
+# 1) Que Google y otros buscadores no indexen esta versión de prueba
+<IfModule mod_headers.c>
+  Header set X-Robots-Tag "noindex, nofollow"
+</IfModule>
+
+# 2) Página de inicio
+DirectoryIndex index.html
+
+# 3) Caché del navegador para imágenes, fuentes, CSS y JS (la web carga más rápido)
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType text/css "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+  ExpiresByType text/javascript "access plus 7 days"
+</IfModule>
+
+# 4) Forzar HTTPS. Quita las almohadillas (#) de las 3 líneas siguientes
+#    SOLO cuando el certificado SSL del subdominio ya esté activo.
+# RewriteEngine On
+# RewriteCond %{HTTPS} !=on
+# RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]

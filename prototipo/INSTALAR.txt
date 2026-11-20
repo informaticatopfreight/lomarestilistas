@@ -1,0 +1,65 @@
+LOMAR ESTILISTAS - PROTOTIPO DE LA NUEVA WEB
+Instalación en un subdominio de Dinahosting
+============================================
+
+QUÉ ES ESTE PAQUETE
+Es el prototipo de diseño: la web completa con su aspecto y animaciones,
+la carta de servicios, el equipo, el contacto y los textos legales.
+La RESERVA ES UNA SIMULACIÓN: enseña el recorrido, pero no guarda citas
+ni envía correos. Sirve para que el cliente vea y apruebe el diseño.
+No necesita base de datos ni PHP: son archivos estáticos.
+
+QUÉ CONTIENE
+  index.html          Portada
+  aviso-legal.html    Aviso legal
+  privacidad.html     Política de privacidad
+  cookies.html        Política de cookies
+  assets/             Estilos, scripts, fuentes e imágenes
+  robots.txt          Pide a los buscadores que no indexen el subdominio
+  .htaccess           Configuración de Apache (no indexar, caché, HTTPS)
+  INSTALAR.txt        Este archivo (no hace falta subirlo)
+
+  Ojo: .htaccess empieza por punto y algunos sistemas lo ocultan.
+  Asegúrate de que se sube también.
+
+PASOS
+1. Entra en el Panel de Control de Dinahosting y abre el hosting donde
+   está (o estará) lomarestilistas.es.
+
+2. Crea el subdominio en la sección "Subdominios" del hosting.
+   Ejemplo: nueva.lomarestilistas.es (o prueba., demo., etc.).
+   Apunta la carpeta que el panel asigna al subdominio: ahí van los archivos.
+
+3. Activa el certificado Let's Encrypt del subdominio. Según la ayuda de
+   Dinahosting, se hace desde la misma sección "Subdominios".
+   Puede tardar unos minutos en emitirse, y para emitirlo el subdominio
+   tiene que apuntar ya al hosting (DNS).
+
+4. Sube los archivos a la carpeta del subdominio:
+   - Opción A: el gestor de archivos del panel. Sube el ZIP a la carpeta
+     del subdominio y descomprímelo ahí, si el gestor lo permite.
+   - Opción B: FTP (por ejemplo FileZilla), con los datos FTP que aparecen
+     en el panel del hosting. Descomprime el ZIP en tu ordenador y sube
+     el CONTENIDO de la carpeta (no la carpeta en sí).
+   index.html tiene que quedar directamente dentro de la carpeta del
+   subdominio, no en una subcarpeta.
+
+5. Abre https://nueva.lomarestilistas.es (o el nombre que hayas elegido)
+   y comprueba que se ve la portada.
+
+6. Cuando el HTTPS funcione, edita .htaccess y quita las almohadillas (#)
+   de las tres líneas del punto 4 para forzar HTTPS.
+
+SI ALGO FALLA
+- Sale un listado de archivos o un error 403: index.html no está en la
+  carpeta correcta.
+- Se ve sin estilos o sin imágenes: falta la carpeta assets o se ha
+  subido dentro de otra carpeta.
+- Error 500 tras subir .htaccess: borra el .htaccess (la web funciona
+  igual sin él) y avísanos.
+- El subdominio no carga: los DNS pueden tardar en propagarse,
+  normalmente minutos y como mucho unas horas.
+
+IMPORTANTE
+La web DEFINITIVA, con reservas reales, será un WordPress con Bookly Pro
+y su base de datos MySQL. Este paquete es solo la vista previa del diseño.
